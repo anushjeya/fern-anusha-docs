@@ -281,7 +281,7 @@ components:
           default: []
           description:
             "Note: This is just a place holder since there will not be
-            any dropped tasks in infeasible solution.Contains details of dropped tasks
+            any dropped tasks in infeasible solution. Contains details of dropped tasks
             when prize collection is enabled."
         initial_solutions:
           default: []

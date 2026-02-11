@@ -1,0 +1,155 @@
+---
+title: NVIDIA API Reference Overview
+description: Technical overview of NVIDIA APIs including CUDA, AI, simulation, and GPU-accelerated services.
+slug: nvidia-api-reference-overview
+---
+
+The NVIDIA API ecosystem provides programmatic access to GPU-accelerated computation, AI inference, simulation, and high-performance workflows.
+
+This reference covers APIs built on top of NVIDIA’s core technologies:
+
+- **CUDA** – Parallel GPU computing
+- **AI/ML Acceleration** – Inference and model optimization
+- **Simulation & Omniverse** – Real-time 3D and digital twin APIs
+- **Optimization & HPC Services** – High-performance compute workloads
+
+---
+
+## API Design Principles
+
+NVIDIA APIs are designed with the following characteristics:
+
+- **High-throughput performance**
+- **GPU-accelerated execution**
+- **Low-latency inference**
+- **Scalable deployment across multi-GPU systems**
+- **Cloud and on-prem compatibility**
+
+Most APIs follow REST or gRPC patterns and are optimized for asynchronous workloads where GPU tasks may take significant compute time.
+
+---
+
+## Core API Categories
+
+### 1. Compute APIs (CUDA-Based)
+
+These APIs expose GPU compute capabilities for:
+
+- Parallel data processing
+- Scientific simulation
+- Custom kernel execution
+- Batch computation workloads
+
+Typical patterns:
+- Submit compute job
+- Monitor job status
+- Retrieve results
+
+---
+
+### 2. AI & Inference APIs
+
+AI APIs leverage:
+
+- **TensorRT** for optimized inference
+- **Triton Inference Server** for scalable model deployment
+- **cuDNN** for deep learning acceleration
+
+Common endpoints include:
+
+- Model registration
+- Model version management
+- Inference execution
+- Performance metrics retrieval
+
+Example workflow:
+
+1. Upload or register model  
+2. Optimize model for GPU inference  
+3. Deploy model to Triton  
+4. Send inference requests  
+5. Retrieve predictions  
+
+---
+
+### 3. Simulation & Omniverse APIs
+
+Simulation APIs allow programmatic control of:
+
+- 3D scene updates
+- Physics simulations
+- Digital twin state synchronization
+- AI agent training environments
+
+These APIs often integrate with:
+
+- Universal Scene Description (USD)
+- PhysX physics engine
+- Real-time rendering pipelines
+
+---
+
+### 4. Optimization & HPC APIs
+
+Designed for:
+
+- Route optimization
+- Resource allocation
+- Large-scale combinatorial problems
+- Industrial scheduling
+
+These workloads are GPU-accelerated tto solve complex optimization problems significantly faster than CPU-based systems.
+
+---
+
+## Authentication & Security
+
+Most NVIDIA service APIs support:
+
+- API key-based authentication
+- OAuth or token-based authentication
+- Role-based access control (RBAC)
+
+For production systems, GPU workloads are typically deployed behind secure endpoints in:
+
+- Kubernetes clusters
+- Cloud GPU instances
+- On-prem data centers
+
+---
+
+## Performance Considerations
+
+When working with NVIDIA APIs:
+
+- Batch requests when possible to maximize GPU utilization
+- Minimize host-to-device memory transfers
+- Use asynchronous job patterns for long-running workloads
+- Monitor GPU utilization and memory consumption
+
+GPU acceleration provides significant performance gains, but optimal usage depends on workload design.
+
+---
+
+## End-to-End Workflow Example
+
+1. Use CUDA APIs to preprocess large datasets  
+2. Train a model using GPU-accelerated frameworks  
+3. Deploy the model with Triton Inference Server  
+4. Simulate deployment scenarios in Omniverse  
+5. Monitor performance through API metrics  
+
+This integrated approach enables rapid development from experimentation to production.
+
+---
+
+## Who This API Reference Is For
+
+- Machine Learning Engineers
+- Robotics Engineers
+- Simulation Developers
+- HPC Engineers
+- AI Infrastructure Architects
+
+If you are building GPU-accelerated systems, this reference provides the foundational APIs to design, deploy, and scale your workloads efficiently.
+

@@ -1,0 +1,156 @@
+---
+title: NVIDIA cuOpt
+description: Overview of NVIDIA cuOpt for GPU-accelerated optimization and large-scale decision intelligence.
+slug: cuopt
+---
+
+NVIDIA cuOpt is a **GPU-accelerated optimization engine** designed to solve complex routing and decision-making problems at massive scale.
+
+It leverages NVIDIA CUDA to dramatically accelerate combinatorial optimization workloads that traditionally run slowly on CPUs.
+
+cuOpt is built for real-time and large-scale operational optimization.
+
+---
+
+## What Problems Does cuOpt Solve?
+
+cuOpt focuses on:
+
+- Vehicle routing problems (VRP)
+- Dynamic fleet management
+- Resource allocation
+- Scheduling optimization
+- Last-mile delivery optimization
+- Constraint-based decision systems
+
+These are computationally intensive problems with exponential complexity. cuOpt uses parallel GPU computation to evaluate many solution candidates simultaneously.
+
+---
+
+## Why GPU Acceleration Matters
+
+Traditional optimization solvers:
+
+- Run sequentially on CPUs
+- Struggle with large datasets
+- Have long solve times
+
+cuOpt:
+
+- Uses thousands of GPU cores
+- Evaluates solution spaces in parallel
+- Produces near-real-time optimization results
+- Scales efficiently with larger datasets
+
+This makes it ideal for logistics, robotics fleets, and real-time planning systems.
+
+---
+
+## Core Capabilities
+
+### High-Performance Route Optimization
+
+Supports:
+
+- Time windows
+- Capacity constraints
+- Distance constraints
+- Multi-vehicle routing
+- Dynamic job insertion
+
+---
+
+### Real-Time Re-Optimization
+
+cuOpt can:
+
+- Adapt to changing traffic conditions
+- Handle last-minute job updates
+- Recalculate routes instantly
+- Support streaming input workloads
+
+---
+
+### Constraint Handling
+
+cuOpt supports complex constraints such as:
+
+- Service-level agreements (SLAs)
+- Driver shifts
+- Vehicle compatibility
+- Location restrictions
+
+---
+
+## How cuOpt Works
+
+1. Input problem data (locations, vehicles, constraints)
+2. Encode optimization model
+3. Transfer data to GPU memory
+4. Execute parallel optimization kernels
+5. Return optimized routes or schedules
+
+Under the hood, cuOpt uses CUDA-accelerated heuristics and parallel search strategies to explore solution spaces efficiently.
+
+---
+
+## Example Use Case: Fleet Optimization
+
+A logistics company with:
+
+- 5,000 delivery stops
+- 500 vehicles
+- Strict time windows
+
+Using cuOpt:
+
+- Routes are generated in seconds instead of minutes
+- Real-time updates adjust routes dynamically
+- Fuel costs and travel time are minimized
+- SLA compliance improves
+
+---
+
+## Integration Scenarios
+
+cuOpt integrates with:
+
+- Omniverse digital twins for simulation testing
+- AI systems for demand forecasting
+- Cloud GPU instances for scalable optimization
+- Enterprise logistics systems via APIs
+
+Example workflow:
+
+1. Forecast demand using AI model  
+2. Send route optimization request to cuOpt API  
+3. Validate routes in Omniverse simulation  
+4. Deploy routes to real-world fleet  
+
+---
+
+## Who Should Use cuOpt?
+
+- Logistics platform engineers  
+- Robotics fleet operators  
+- Supply chain architects  
+- Smart city planners  
+- Operations research teams  
+
+cuOpt is ideal when optimization must be:
+
+- Fast  
+- Scalable  
+- Adaptive  
+- GPU-accelerated  
+
+---
+
+## Position in NVIDIA Ecosystem
+
+- **CUDA** → Provides GPU compute foundation  
+- **cuOpt** → Applies GPU acceleration to optimization problems  
+- **Omniverse** → Simulates optimized systems in digital environments  
+- **AI Libraries** → Forecast demand and enhance decision-making  
+
+Together, they enable end-to-end intelligent operational systems.

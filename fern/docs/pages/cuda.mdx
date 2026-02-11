@@ -1,0 +1,31 @@
+---
+title: NVIDIA CUDA - GPU parallel computing
+description: Learn about CUDA and GPU parallel computing.
+slug: cuda
+---
+
+# CUDA – GPU Parallel Computing
+
+CUDA (Compute Unified Device Architecture) is NVIDIA's **parallel computing platform and programming model** that allows developers to run computations on NVIDIA GPUs.  
+
+## Key Concepts
+
+- **Kernels**: Functions executed on the GPU across thousands of threads  
+- **Threads & Blocks**: Organize parallel execution; threads are grouped in blocks, blocks form a grid  
+- **Memory Types**: Global, shared, local – proper usage is critical for performance  
+
+## Use Cases
+
+- Scientific simulations (physics, fluid dynamics)  
+- Deep learning model training  
+- Video processing and rendering  
+- High-performance analytics  
+
+## Example: Python with CuPy
+
+```python
+import cupy as cp
+
+x = cp.array([1, 2, 3, 4])
+y = x ** 2
+print(y)  # GPU-accelerated array computation

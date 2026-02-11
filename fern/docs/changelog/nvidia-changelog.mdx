@@ -1,0 +1,64 @@
+---
+title: Changelog
+description: Release notes for NVIDIA APIs and platform services.
+---
+
+All notable changes to NVIDIA APIs and platform services are documented here.
+
+---
+
+## 25.12.0 — 2026-02-01
+
+### Added
+- Added support for dynamic job insertion in **cuOpt Route Optimization API**
+- Introduced GPU utilization metrics endpoint for monitoring workloads
+- Added multi-scene synchronization support in **Omniverse Simulation API**
+
+### Improved
+- Reduced route optimization latency by ~18% for large VRP workloads
+- Improved TensorRT inference startup time
+- Enhanced CUDA memory pooling efficiency for batch compute jobs
+
+### Fixed
+- Fixed edge case in time-window constraint validation in cuOpt
+- Resolved memory leak during long-running Omniverse physics simulations
+- Corrected inconsistent error responses in `/health` endpoint
+
+---
+
+## 25.11.2 — 2026-01-15
+
+### Fixed
+- Patched GPU scheduling bug affecting multi-tenant environments
+- Fixed incorrect route distance calculation when using custom cost matrices
+
+### Security
+- Updated authentication token validation logic
+- Hardened API gateway rate limiting configuration
+
+---
+
+## 25.11.0 — 2025-12-10
+
+### Added
+- Initial release of cuOpt Optimization API v1
+- Triton Inference integration for real-time AI decision pipelines
+- Omniverse digital twin telemetry export endpoint
+
+### Improved
+- Improved CUDA kernel launch performance under high concurrency
+- Enhanced logging for distributed GPU clusters
+
+---
+
+## Versioning Policy
+
+NVIDIA APIs follow semantic versioning:
+
+- **Major**: Breaking API changes
+- **Minor**: Backward-compatible feature additions
+- **Patch**: Bug fixes and performance improvements
+
+---
+
+For detailed API schema changes, see the individual endpoint reference documentation.

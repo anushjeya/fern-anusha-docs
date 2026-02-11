@@ -31,30 +31,30 @@ navigation:
           - page: Welcome
             path: docs/pages/welcome.mdx
             icon: fa-duotone fa-house
-          - page: Edit your docs
-            path: docs/pages/editing-your-docs.mdx
+          - page: Omniverse
+            path: docs/pages/Omniverse.mdx
             icon: fa-duotone fa-pen-to-square
-          - page: Write content
-            path: docs/pages/writing-content.mdx
+          - page: cuOpt
+            path: docs/pages/cuopt.mdx
             icon: fa-duotone fa-file-lines
-          - page: Set up navigation
-            path: docs/pages/navigation.mdx
-            icon: fa-duotone fa-sitemap
-          - page: Customize your docs
-            path: docs/pages/customization.mdx
+          - page: CUDA
+            path: docs/pages/cuda.mdx
+            icon: fa-duotone fa-microchip
+          - page: AI acceleration
+            path: docs/pages/ai-acceleration.mdx
             icon: fa-duotone fa-palette
-          - page: Support
-            path: docs/pages/support.mdx
+          - page: NVIDIA ecosystem
+            path: docs/pages/ecosystem.mdx
             icon: fa-duotone fa-headset
-      - section: Changelog
-        contents:
-          - changelog: docs/changelog
+      # - section: Changelog
+      #   contents:
+    #    - changelog: docs/changelog
   - tab: API Reference
     layout:
       - section: Overview
         contents:
-          - page: API reference
-            path: docs/pages/api-reference-overview.mdx
+          - page: NVIDIA API Reference overview
+            path: docs/pages/nvidia-overview.mdx
             icon: fa-duotone fa-book
       - api: NVIDIA API
         layout:

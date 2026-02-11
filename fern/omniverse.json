@@ -1,0 +1,464 @@
+{
+  "openapi": "3.1.0",
+  "servers": [
+    {
+      "url": "https://api.example.com/v1",
+      "description": "Production server (uses live data)"
+    }
+  ],
+  "info": {
+    "title": "Omniverse Renderer Microservice",
+    "description": "The renderer microservice renders and streams an avatar model in the specified pose.",
+    "version": "0.1"
+  },
+  "tags": [
+    {
+      "name": "omni",
+      "description": "Operations related to service status"
+    }
+  ],
+  "paths": {
+    "/status": {
+      "get": {
+        "summary": "Returns the current status of the service",
+        "description": "Returns the current status of the service.",
+        "operationId": "_status_status_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "summary": "Health probe",
+        "description": "Returns the current status of the service.",
+        "operationId": "_status_health_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ready": {
+      "get": {
+        "summary": "Readiness probe",
+        "description": "Returns the current status of the service.",
+        "operationId": "_status_ready_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/startup": {
+      "get": {
+        "summary": "Startup probe",
+        "description": "Returns the current status of the service.",
+        "operationId": "_status_startup_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/asyncapi/docs": {
+      "get": {
+        "summary": " Async App Docs Endpoint",
+        "operationId": "_async_app_docs_endpoint_asyncapi_docs_get",
+        "parameters": [
+          {
+            "name": "app_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "App Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/asyncapi/schema": {
+      "get": {
+        "summary": " Async App Schema Endpoint",
+        "operationId": "_async_app_schema_endpoint_asyncapi_schema_get",
+        "parameters": [
+          {
+            "name": "app_name",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "App Name"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdr/add_stream": {
+      "post": {
+        "summary": "Post Sdr Add Stream",
+        "operationId": "post_sdr_add_stream_sdr_add_stream_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PostSdrStreamsBodyModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Post Sdr Add Stream Sdr Add Stream Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sdr/remove_stream": {
+      "post": {
+        "summary": "Post Sdr Remove Stream",
+        "operationId": "post_sdr_remove_stream_sdr_remove_stream_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteSdrStreamsBodyModel"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Post Sdr Remove Stream Sdr Remove Stream Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/streams/{stream_id}": {
+      "post": {
+        "summary": "Post Streams Stream Id",
+        "operationId": "post_streams_stream_id_streams__stream_id__post",
+        "parameters": [
+          {
+            "name": "stream_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Stream Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Post Streams Stream Id Streams  Stream Id  Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Streams Stream Id",
+        "operationId": "delete_streams_stream_id_streams__stream_id__delete",
+        "parameters": [
+          {
+            "name": "stream_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Stream Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Delete Streams Stream Id Streams  Stream Id  Delete"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/readiness": {
+      "get": {
+        "summary": "Readiness",
+        "operationId": "readiness_readiness_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Readiness Readiness Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/liveness": {
+      "get": {
+        "summary": "Liveness",
+        "operationId": "liveness_liveness_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Liveness Liveness Get"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/reload_scene": {
+      "post": {
+        "summary": "Reload Scene",
+        "operationId": "reload_scene_reload_scene_post",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "title": "Response Reload Scene Reload Scene Post"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DeleteSdrStreamsBodyModel": {
+        "properties": {
+          "event": {
+            "$ref": "#/components/schemas/EventModel"
+          }
+        },
+        "type": "object",
+        "required": [
+          "event"
+        ],
+        "title": "DeleteSdrStreamsBodyModel"
+      },
+      "EventModel": {
+        "properties": {
+          "camera_id": {
+            "type": "string",
+            "title": "Camera Id"
+          }
+        },
+        "type": "object",
+        "required": [
+          "camera_id"
+        ],
+        "title": "EventModel"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "PostSdrStreamsBodyModel": {
+        "properties": {
+          "event": {
+            "$ref": "#/components/schemas/EventModel"
+          }
+        },
+        "type": "object",
+        "required": [
+          "event"
+        ],
+        "title": "PostSdrStreamsBodyModel"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}

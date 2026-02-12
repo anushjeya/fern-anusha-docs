@@ -1,14 +1,13 @@
 # yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
 
 instances:
-  - url: anusha.docs.buildwithfern.com # update this to {yourorg}.docs.buildwithfern.com
-    # custom-domain: plantstore.dev # specify your custom domain when you are ready to go live
+  - url: anusha.docs.buildwithfern.com
 
 ai-search:
   location:
     - docs
 
-title: Fern Docs Starter
+title: Anusha Jeyaseelan's NVIDIA API Documentation
 
 layout:
   searchbar-placement: header
@@ -73,13 +72,13 @@ navigation:
 
 navbar-links:
   - type: minimal
-    text: Fork this repo
-    url: https://github.com/fern-api/docs-starter
-  - type: filled
-    text: Dashboard
-    url: https://dashboard.buildwithfern.com
+    text: NVIDIA repo
+    url: https://github.com/anushjeya/fern-anusha-docs
   - type: github
-    value: https://github.com/fern-api/fern
+    value: https://github.com/anushjeya/anusha-jeyaseelan
+  - type: secondary
+    text: Anusha Jeyaseelan portfolio
+    url: https://anushjeya.github.io/anusha-jeyaseelan/portfolio/
 
 colors:
   accent-primary:
@@ -94,10 +93,10 @@ theme:
   footer-nav: minimal
 
 logo:
-  dark: docs/assets/logo-dark.svg
-  light: docs/assets/logo.svg
-  height: 20
-  href: https://buildwithfern.com
+  dark: docs/assets/anusha-logo.png
+  light: docs/assets/anusha-logo-light.png
+  height: 150
+  href: https://anushjeya.github.io/anusha-jeyaseelan/portfolio/
 
 favicon: docs/assets/favicon.svg
 

@@ -650,12 +650,14 @@ servers:
 paths:
   /:
     get:
-      description: To ping if server is running
+      summary: Check service health
+      description: Returns the current operational status of the service. Use this endpoint to verify that the server is running and able to process requests. This endpoint does not perform deep dependency checks.
       operationId: health__get
       tags:
         - health
       responses:
         "200":
+          description: Service is operational.
           content:
             application/json:
               examples:
@@ -665,8 +667,8 @@ paths:
                     version: "25.12"
               schema:
                 $ref: "#/components/schemas/HealthResponseModel"
-          description: Successful health check
         "500":
+          description: Service is unavilable or in failed state.
           content:
             application/json:
               examples:
@@ -676,17 +678,13 @@ paths:
 
                       Status : Broken
 
-                      The server will be restarted and will be available in 15 mins
-                      !!!
-
-                      ERROR : Server is BROKEN"
+                      The server is currently unavailable and maybe restarting. Try again in a few minutes."
               schema:
                 $ref: "#/components/schemas/DetailModel"
-          description: Unsuccessful health check
-      summary: Health
   /cuopt/health:
     get:
-      description: To ping if server is running
+      summary: Check cuOpt service health
+      description: Returns the operational status of the cuOpt service. Use this endpoint to confirm that the cuOpt service is running and ready to accept optimization requests.
       operationId: health_cuopt_health_get
       tags:
         - health
@@ -701,7 +699,7 @@ paths:
                     version: "25.12"
               schema:
                 $ref: "#/components/schemas/HealthResponseModel"
-          description: Successful health check
+          description: cuOpt service is operational.
         "500":
           content:
             application/json:
@@ -712,14 +710,10 @@ paths:
 
                       Status : Broken
 
-                      The server will be restarted and will be available in 15 mins
-                      !!!
-
-                      ERROR : Server is BROKEN"
+                      The cuOpt service is currently unavailable and maybe restarting. Try again in a few minutes."
               schema:
                 $ref: "#/components/schemas/DetailModel"
-          description: Unsuccessful health check
-      summary: Health
+          description: cuOpt service is unavailable or encountered an internal error.
   /cuopt/log/{id}:
     delete:
       description:

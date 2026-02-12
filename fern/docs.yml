@@ -64,7 +64,7 @@ navigation:
             contents: []
           - section: NVIDIA® NV-CLIP
             referenced-packages:
-              - NVIDIA NV-CLIP API
+              - nvclip
             contents: []
           - section: NVIDIA® Omniverse Renderer
             referenced-packages:

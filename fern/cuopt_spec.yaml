@@ -688,6 +688,8 @@ paths:
     get:
       description: To ping if server is running
       operationId: health_cuopt_health_get
+      tags:
+        - health
       responses:
         "200":
           content:
@@ -724,6 +726,8 @@ paths:
         "Note: This is for self-hosted. Delete accumulated logs for a particular
         request."
       operationId: deletesolverlogs_cuopt_log__id__delete
+      tags:
+        - health
       parameters:
         - in: path
           name: id
@@ -776,6 +780,8 @@ paths:
       description: "Note: This is for self-hosted. Query solver log. The 'id' is
         the uuid returned when the request was made."
       operationId: getsolverlogs_cuopt_log__id__get
+      tags:
+        - health
       parameters:
         - in: path
           name: id
@@ -846,6 +852,8 @@ paths:
         Takes VRP/LP/MILP data and options at once, submits any type of cuOpt problem
         and returns the request id."
       operationId: postrequest_cuopt_request_post
+      tags:
+        - health
       parameters:
         - description:
             If set to True, the data for the request will be cached and a
@@ -3192,6 +3200,8 @@ paths:
         (either a cached request or a request to be solved). The 'id' is the reqId
         value returned from a POST to /cuopt/request."
       operationId: deleterequest_cuopt_request__id__delete
+      tags:
+        - health
       parameters:
         - description:
             ID of the request to delete. The wildcard ID '*' will match all
@@ -3297,6 +3307,8 @@ paths:
         "Note: for use with self-hosted cuOpt instances. Check the status
         of a request."
       operationId: getrequest_cuopt_request__id__get
+      tags:
+        - health
       parameters:
         - in: path
           name: id
@@ -3369,6 +3381,8 @@ paths:
         solution and returns a reqId. This is useful for uploading a VRP solution
         to use as an initial solution for another request."
       operationId: postsolution_cuopt_solution_post
+      tags:
+        - health
       parameters:
         - description:
             Supported result mime_types are 'application/json', 'application/vnd.msgpack',
@@ -4081,6 +4095,8 @@ paths:
         by id. The 'id' is the reqId value returned from a POST to /cuopt/request
         or /cuopt/solution."
       operationId: deletesolution_cuopt_solution__id__delete
+      tags:
+        - health
       parameters:
         - description: "ID of the solution to delete. "
           in: path
@@ -4139,6 +4155,8 @@ paths:
         and the request has not yet completed, the reqId value will be returned and
         can be used to continue polling."
       operationId: getsolution_cuopt_solution__id__get
+      tags:
+        - health
       parameters:
         - in: path
           name: id
@@ -4345,6 +4363,8 @@ paths:
         that no future incumbent values will be produced. The 'id' is the reqId
         value returned from a POST to /cuopt/request"
       operationId: getincumbent_cuopt_solution__id__incumbents_get
+      tags:
+        - health
       parameters:
         - in: path
           name: id
@@ -4425,6 +4445,8 @@ paths:
     get:
       description: To check liveness of the server
       operationId: health_v2_health_live_get
+      tags:
+        - health
       responses:
         "200":
           content:
@@ -4459,6 +4481,8 @@ paths:
     get:
       description: To check readiness of the server
       operationId: health_v2_health_ready_get
+      tags:
+        - health
       responses:
         "200":
           content:

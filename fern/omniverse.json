@@ -1,16 +1,16 @@
 {
   "openapi": "3.1.0",
+  "info": {
+    "title": "Omniverse Renderer Microservice",
+    "description": "The renderer microservice renders and streams an avatar model in the specified pose.",
+    "version": "0.1"
+  },
   "servers": [
     {
       "url": "https://api.example.com/v1",
       "description": "Production server (uses live data)"
     }
   ],
-  "info": {
-    "title": "Omniverse Renderer Microservice",
-    "description": "The renderer microservice renders and streams an avatar model in the specified pose.",
-    "version": "0.1"
-  },
   "tags": [
     {
       "name": "omni",
@@ -23,12 +23,17 @@
         "summary": "Returns the current status of the service",
         "description": "Returns the current status of the service.",
         "operationId": "_status_status_get",
+        "tags": [
+          "omni"
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object"
+                }
               }
             }
           }
@@ -40,12 +45,17 @@
         "summary": "Health probe",
         "description": "Returns the current status of the service.",
         "operationId": "_status_health_get",
+        "tags": [
+          "omni"
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object"
+                }
               }
             }
           }
@@ -57,12 +67,17 @@
         "summary": "Readiness probe",
         "description": "Returns the current status of the service.",
         "operationId": "_status_ready_get",
+        "tags": [
+          "omni"
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object"
+                }
               }
             }
           }
@@ -74,12 +89,17 @@
         "summary": "Startup probe",
         "description": "Returns the current status of the service.",
         "operationId": "_status_startup_get",
+        "tags": [
+          "omni"
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object"
+                }
               }
             }
           }
@@ -90,6 +110,9 @@
       "get": {
         "summary": " Async App Docs Endpoint",
         "operationId": "_async_app_docs_endpoint_asyncapi_docs_get",
+        "tags": [
+          "omni"
+        ],
         "parameters": [
           {
             "name": "app_name",
@@ -106,7 +129,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object"
+                }
               }
             }
           },
@@ -127,6 +152,9 @@
       "get": {
         "summary": " Async App Schema Endpoint",
         "operationId": "_async_app_schema_endpoint_asyncapi_schema_get",
+        "tags": [
+          "omni"
+        ],
         "parameters": [
           {
             "name": "app_name",
@@ -143,7 +171,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "type": "object"
+                }
               }
             }
           },
@@ -164,6 +194,9 @@
       "post": {
         "summary": "Post Sdr Add Stream",
         "operationId": "post_sdr_add_stream_sdr_add_stream_post",
+        "tags": [
+          "omni"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -203,6 +236,9 @@
       "post": {
         "summary": "Post Sdr Remove Stream",
         "operationId": "post_sdr_remove_stream_sdr_remove_stream_post",
+        "tags": [
+          "omni"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -242,6 +278,9 @@
       "post": {
         "summary": "Post Streams Stream Id",
         "operationId": "post_streams_stream_id_streams__stream_id__post",
+        "tags": [
+          "omni"
+        ],
         "parameters": [
           {
             "name": "stream_id",
@@ -260,7 +299,7 @@
               "application/json": {
                 "schema": {
                   "type": "string",
-                  "title": "Response Post Streams Stream Id Streams  Stream Id  Post"
+                  "title": "Response Post Streams Stream Id"
                 }
               }
             }
@@ -280,6 +319,9 @@
       "delete": {
         "summary": "Delete Streams Stream Id",
         "operationId": "delete_streams_stream_id_streams__stream_id__delete",
+        "tags": [
+          "omni"
+        ],
         "parameters": [
           {
             "name": "stream_id",
@@ -298,7 +340,7 @@
               "application/json": {
                 "schema": {
                   "type": "string",
-                  "title": "Response Delete Streams Stream Id Streams  Stream Id  Delete"
+                  "title": "Response Delete Streams Stream Id"
                 }
               }
             }
@@ -320,6 +362,9 @@
       "get": {
         "summary": "Readiness",
         "operationId": "readiness_readiness_get",
+        "tags": [
+          "omni"
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -339,6 +384,9 @@
       "get": {
         "summary": "Liveness",
         "operationId": "liveness_liveness_get",
+        "tags": [
+          "omni"
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -358,6 +406,9 @@
       "post": {
         "summary": "Reload Scene",
         "operationId": "reload_scene_reload_scene_post",
+        "tags": [
+          "omni"
+        ],
         "responses": {
           "200": {
             "description": "Successful Response",
@@ -377,58 +428,65 @@
   "components": {
     "schemas": {
       "DeleteSdrStreamsBodyModel": {
+        "type": "object",
+        "required": [
+          "event"
+        ],
         "properties": {
           "event": {
             "$ref": "#/components/schemas/EventModel"
           }
         },
-        "type": "object",
-        "required": [
-          "event"
-        ],
         "title": "DeleteSdrStreamsBodyModel"
       },
       "EventModel": {
+        "type": "object",
+        "required": [
+          "camera_id"
+        ],
         "properties": {
           "camera_id": {
             "type": "string",
             "title": "Camera Id"
           }
         },
-        "type": "object",
-        "required": [
-          "camera_id"
-        ],
         "title": "EventModel"
       },
       "HTTPValidationError": {
+        "type": "object",
         "properties": {
           "detail": {
+            "type": "array",
             "items": {
               "$ref": "#/components/schemas/ValidationError"
             },
-            "type": "array",
             "title": "Detail"
           }
         },
-        "type": "object",
         "title": "HTTPValidationError"
       },
       "PostSdrStreamsBodyModel": {
+        "type": "object",
+        "required": [
+          "event"
+        ],
         "properties": {
           "event": {
             "$ref": "#/components/schemas/EventModel"
           }
         },
-        "type": "object",
-        "required": [
-          "event"
-        ],
         "title": "PostSdrStreamsBodyModel"
       },
       "ValidationError": {
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
         "properties": {
           "loc": {
+            "type": "array",
             "items": {
               "anyOf": [
                 {
@@ -439,7 +497,6 @@
                 }
               ]
             },
-            "type": "array",
             "title": "Location"
           },
           "msg": {
@@ -451,12 +508,6 @@
             "title": "Error Type"
           }
         },
-        "type": "object",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
         "title": "ValidationError"
       }
     }

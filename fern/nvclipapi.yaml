@@ -13,14 +13,14 @@ info:
     name: NVIDIA AI Foundation Models Community License
     url: https://docs.nvidia.com/ai-foundation-models-community-license.pdf
 tags:
-  - name: "NVIDIA NV-CLIP API"
+  - name: "nvclip"
     description: Get a vector representation of a given input that can be easily consumed by machine learning models and algorithms.
 paths:
   /v1/health/ready:
     get:
       summary: Service ready check
       tags:
-        - NVIDIA NV-CLIP API
+        - nvclip
       description:
         This endpoint will return a 200 status when the service is ready
         to receive inference requests
@@ -42,7 +42,7 @@ paths:
     get:
       summary: Service liveness check
       tags:
-        - NVIDIA NV-CLIP API
+        - nvclip
       description:
         This endpoint will return a 200 status as soon as the service is
         able to accept traffic, but it does not mean the service is ready to accept
@@ -59,7 +59,7 @@ paths:
     get:
       summary: Metrics
       tags:
-        - NVIDIA NV-CLIP API
+        - nvclip
       description: Handler for metrics endpoint.
       operationId: metrics_v1_metrics_get
       responses:
@@ -74,7 +74,7 @@ paths:
     get:
       summary: Provide NIM LICENSE
       tags:
-        - NVIDIA NV-CLIP API
+        - nvclip
       description: This endpoint will return the NIM Container license information
       operationId: show_license_v1_license_get
       responses:
@@ -91,6 +91,8 @@ paths:
         This endpoint will return the NIM Container Version, associated
         models, assets and license information
       operationId: show_metadata_v1_metadata_get
+      tags:
+        - nvclip
       responses:
         "200":
           description: Successful Response
@@ -103,6 +105,8 @@ paths:
       summary: Provide NIM Manifest file
       description: This endpoint will return the NIM manifest file content
       operationId: manifest_v1_manifest_get
+      tags:
+        - nvclip
       responses:
         "200":
           description: Successful Response
@@ -112,8 +116,6 @@ paths:
                 $ref: "#/components/schemas/ManifestEndpointModel"
   "/v1/embeddings":
     post:
-      tags:
-        - Embeddings
       summary: Creates an embedding vector representing the input text or image.
       description:
         "Invokes inference using the embedding parameters. If uploading
@@ -121,6 +123,8 @@ paths:
         allows for the upload of large assets. \nYou can find details on how to use
         NVCF Asset APIs here: https://docs.api.nvidia.com/cloud-functions/reference/createasset."
       operationId: createEmbedding
+      tags:
+        - nvclip
       parameters:
         - in: header
           name: NVCF-INPUT-ASSET-REFERENCES

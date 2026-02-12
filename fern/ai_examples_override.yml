@@ -205,3 +205,83 @@ paths:
       x-fern-examples:
         - response:
             body: alive
+  /asyncapi/schema:
+    get:
+      x-fern-examples:
+        - query-parameters:
+            app_name: app_name
+  /ready:
+    get:
+      x-fern-examples:
+        - response:
+            body:
+              status: ready
+              uptime: 86400
+              timestamp: '2024-06-01T12:00:00Z'
+  /startup:
+    get:
+      x-fern-examples:
+        - response:
+            body:
+              status: operational
+              uptime: 86400
+              version: 1.4.2
+              maintenanceMode: false
+              lastRestart: '2024-06-01T08:00:00Z'
+  /health:
+    get:
+      x-fern-examples:
+        - response:
+            body:
+              status: healthy
+              uptime: 86400
+              version: 1.4.2
+              timestamp: '2024-06-01T12:00:00Z'
+  /status:
+    get:
+      x-fern-examples:
+        - response:
+            body:
+              status: operational
+              uptime: 86400
+              version: 1.4.2
+              maintenanceMode: false
+              lastChecked: '2024-06-01T12:00:00Z'
+  /asyncapi/docs:
+    get:
+      x-fern-examples:
+        - query-parameters:
+            app_name: app_name
+          response:
+            body:
+              asyncapi: 2.6.0
+              info:
+                title: User Account Service
+                version: 1.0.0
+                description: AsyncAPI documentation for the User Account Service handling user registration and authentication.
+              servers:
+                production:
+                  url: api.useraccountservice.com
+                  protocol: amqp
+                  description: Production AMQP server
+              channels:
+                user/registration:
+                  subscribe:
+                    summary: Receive user registration events
+                    message:
+                      payload:
+                        type: object
+                        properties:
+                          userId:
+                            type: string
+                            format: uuid
+                          email:
+                            type: string
+                            format: email
+                          timestamp:
+                            type: string
+                            format: date-time
+                        required:
+                          - userId
+                          - email
+                          - timestamp
